@@ -26,6 +26,9 @@ const getFebDays = (year: number) => {
   return isLeapYear(year) ? 29 : 28;
 };
 
+export const getListYear = (from: number = 1900) =>
+  Array.from(new Array(200), (v, i) => i + from);
+
 export const generateCalendar = (month?: number, year?: number) => {
   let currDate = new Date();
   if (!month) month = currDate.getMonth();

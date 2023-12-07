@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Roboto+Condensed:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap");
 :root {
   --bg-body: #4d4c5a;
   --bg-main: #141529;
@@ -15,8 +16,6 @@
   --white: #fff;
 
   --shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-
-  --font-family: cursive;
 }
 
 * {
@@ -30,6 +29,5 @@ body {
   height: 100vh;
   display: grid;
   place-items: center;
-  font-family: var(--font-family);
   background-color: var(--bg-body);
 }
