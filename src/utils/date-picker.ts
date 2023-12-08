@@ -60,3 +60,14 @@ export const generateCalendar = (month?: number, year?: number) => {
   }
   return calendarDays;
 };
+
+export const formatDateDDMMYYY = (date: Date = new Date()) => {
+  let day = "" + date.getDate();
+  let month = "" + (date.getMonth() + 1);
+  const year = date.getFullYear();
+
+  if (month.length < 2) month = "0" + month;
+  if (day.length < 2) day = "0" + day;
+
+  return `${day}/${month}/${year}`;
+};

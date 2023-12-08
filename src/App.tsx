@@ -1,5 +1,3 @@
-import React from "react";
-import logo from "./logo.svg";
 import DatePicker from "./components/widgets/DatePicker";
 
 function App() {
