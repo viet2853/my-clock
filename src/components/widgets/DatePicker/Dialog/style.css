@@ -1,21 +1,3 @@
-.calendar {
-  height: max-content;
-  width: max-content;
-  background-color: var(--bg-main);
-  position: relative;
-  overflow: hidden;
-  width: 320px;
-  visibility: hidden;
-  opacity: 0;
-  transform: scale(0.8);
-}
-.calendar.open {
-  visibility: visible;
-  opacity: 1;
-  transform: scale(1);
-  transition: all 0.25s ease-in-out;
-}
-
 .calendar-header {
   display: flex;
   justify-content: space-between;
@@ -158,8 +140,9 @@
 .calendar-days div.selected-day,
 .calendar-days div.selected-day:hover {
   background-color: var(--blue);
-  color: var(--white);
+  color: var(--color-txt);
   border-radius: 50%;
+  color: var(--bg-main);
 }
 
 .calendar-days div.current-day {

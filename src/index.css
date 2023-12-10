@@ -1,13 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Roboto+Condensed:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap");
 :root {
-  --bg-body: #4d4c5a;
-  --bg-main: #141529;
-  --bg-second: #79788c;
+  --bg-main: #101418;
+  --bg-second: rgba(255, 255, 255, 0.7);
   --color-hover: #323048;
   --color-txt: #f8fbff;
+  --bg-modal: #252424;
 
-  --blue: #0000ff;
-  --white: #fff;
+  --blue: #90caf9;
 
   --shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
@@ -21,7 +20,31 @@
 html,
 body {
   height: 100vh;
-  display: grid;
-  place-items: center;
-  background-color: var(--bg-body);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--bg-main);
+}
+
+.App {
+  display: flex;
+  gap: 20px;
+}
+
+.dialog {
+  height: max-content;
+  width: max-content;
+  background-color: var(--bg-modal);
+  position: relative;
+  overflow: hidden;
+  width: 320px;
+  visibility: hidden;
+  opacity: 0;
+  transform: scale(0.8);
+}
+.dialog.open {
+  visibility: visible;
+  opacity: 1;
+  transform: scale(1);
+  transition: all 0.25s ease-in-out;
 }

@@ -11,7 +11,7 @@ export default function DatePicker() {
   const datePickerDialogRef = useRef<TDatePickerDialogHandle>(null);
   const datePickerInputRef = useRef<HTMLInputElement>(null);
 
-  const [value, setValue] = useState<Date>();
+  const [value, setValue] = useState<Date>(new Date());
 
   useOnClickOutside(datePickerRef, () =>
     datePickerDialogRef.current?.onOpen(false)

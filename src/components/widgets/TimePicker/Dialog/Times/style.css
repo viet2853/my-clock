@@ -1,0 +1,14 @@
+.time {
+  position: absolute;
+  color: var(--color-txt);
+  border-radius: 50%;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  z-index: 10;
+  user-select: none;
+}
+
+.time.selected {
+  color: var(--main);
+}

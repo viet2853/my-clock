@@ -75,7 +75,7 @@ const DatePickerDialog: ForwardRefRenderFunction<
   };
 
   return (
-    <div className={`calendar ${isOpen ? "open" : ""}`}>
+    <div className={`dialog ${isOpen ? "open" : ""}`}>
       <div className="calendar-header">
         <div className="month-picker-wrapper">
           <span

@@ -10,10 +10,11 @@ interface IInput extends InputHTMLAttributes<{}> {
     element: React.JSX.Element;
     onCLick: () => void;
   };
+  label?: string;
 }
 
 const Input: ForwardRefRenderFunction<any, IInput> = (
-  { rightElement, ...props },
+  { rightElement, label = "Chọn ngày", ...props },
   ref
 ) => {
   return (
@@ -28,7 +29,7 @@ const Input: ForwardRefRenderFunction<any, IInput> = (
         {...props}
       />
       <label htmlFor="date" className="label">
-        Chọn ngày
+        {label}
       </label>
       {rightElement && (
         <div className="right-element" onClick={rightElement?.onCLick}>
