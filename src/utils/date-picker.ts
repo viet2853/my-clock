@@ -61,7 +61,9 @@ export const generateCalendar = (month?: number, year?: number) => {
   return calendarDays;
 };
 
-export const formatDateDDMMYYY = (date: Date = new Date()) => {
+export const formatDateDDMMYYY = (date?: Date) => {
+  if (!date) return "";
+
   let day = "" + date.getDate();
   let month = "" + (date.getMonth() + 1);
   const year = date.getFullYear();

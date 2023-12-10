@@ -1,0 +1,40 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  padding: 16px 24px;
+  gap: 8px;
+}
+
+.time {
+  display: flex;
+}
+
+.time span {
+  font-size: 48px;
+  color: var(--second);
+  padding: 0 2px;
+  cursor: pointer;
+  transition: all 200ms ease-in;
+}
+.time span:not(.dots):hover {
+  background-color: var(--color-hover);
+}
+.time span.active,
+.meridiem span.active {
+  color: #fff;
+}
+
+.meridiem {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2px;
+}
+
+.meridiem span {
+  font-size: 17px;
+  cursor: pointer;
+  transition: color 200ms ease-in;
+  color: var(--second);
+}

@@ -1,11 +1,12 @@
-import React, { CSSProperties } from "react";
-import "./style.css";
+import { CSSProperties } from "react";
 import {
   DIAMETER,
   generateTime,
-  getMinutePercentageSize,
   toRadians,
-} from "../../../../../utils/time-picker";
+  zeroPad,
+} from "../../../../utils/time-picker";
+
+import styles from "./style.module.css";
 
 export enum ETime {
   MINUTE = "M",
@@ -22,14 +23,12 @@ export default function Times({ duration, onClick, type }: TTimes) {
   const center = DIAMETER / 2;
   const radius = center * 0.8;
   const timeNumbers = generateTime(type);
-  const size = DIAMETER * getMinutePercentageSize(DIAMETER);
-
+  const size = 36;
   const moveDistance = size / 2;
   return (
     <>
       {timeNumbers.map((time) => {
-        const angleNb =
-          type === ETime.HOUR ? Number(time) * 30 : Number(time) * 6;
+        const angleNb = type === ETime.HOUR ? time * 30 : time * 6;
         const angleRadian = toRadians(angleNb);
         const left = center + radius * Math.sin(angleRadian) - moveDistance;
         const top = center - radius * Math.cos(angleRadian) - moveDistance;
@@ -44,12 +43,14 @@ export default function Times({ duration, onClick, type }: TTimes) {
 
         return (
           <div
-            onClick={() => onClick && onClick(Number(time))}
+            onClick={() => onClick && onClick(time)}
             style={style}
             key={time}
-            className={`time ${Number(time) === duration ? "selected" : ""}`}
+            className={`${styles.time} ${
+              time === duration ? styles.selected : ""
+            }`}
           >
-            {time}
+            {zeroPad(time)}
           </div>
         );
       })}

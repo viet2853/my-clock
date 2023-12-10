@@ -1,4 +1,4 @@
-import { ETime } from "../components/widgets/TimePicker/Dialog/Times";
+import { ETime } from "../components/widgets/TimePicker/Times";
 
 export const DIAMETER = 220;
 
@@ -26,17 +26,17 @@ export const getMouseAngle = (
   return angle > 0 ? angle : 360 + angle;
 };
 
-export const getMinutePercentageSize = (diameter: number) => {
-  if (diameter < 400) {
-    return 0.1;
+export const getTimeByAngle = (angle: number, type: ETime) => {
+  let time: number;
+  if (type === ETime.HOUR) {
+    time = Math.round(angle / 30) === 0 ? 12 : Math.round(angle / 30);
+  } else {
+    time = Math.round(angle / 6) === 60 ? 0 : Math.round(angle / 6);
   }
-  if (diameter < 320) {
-    return 0.12;
-  }
-  return 0.09;
+  return time;
 };
 
-export function generateTime(type: ETime) {
+export const generateTime = (type: ETime) => {
   const timeList = [];
   const step = type === ETime.HOUR ? 1 : 5;
   if (type === "H") {
@@ -45,7 +45,7 @@ export function generateTime(type: ETime) {
     }
   } else if (type === "M") {
     for (let i = 0; i < 60; i += step) {
-      let minute = i === 60 ? "00" : i < 10 ? `0${i}` : `${i}`;
+      let minute = i === 60 ? 0 : i;
       timeList.push(minute);
     }
   } else {
@@ -53,4 +53,8 @@ export function generateTime(type: ETime) {
   }
 
   return timeList;
-}
+};
+
+export const zeroPad = (num: number) => {
+  return num.toString().padStart(2, "0");
+};

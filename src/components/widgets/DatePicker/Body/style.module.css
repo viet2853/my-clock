@@ -1,0 +1,147 @@
+.wrapper {
+  padding: 10px;
+}
+
+.years {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  color: var(--color-txt);
+  height: 270px;
+  overflow-y: scroll;
+  padding: 0 4px;
+}
+
+.years div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  position: relative;
+  cursor: pointer;
+  height: 36px;
+  border-radius: 18px;
+  transition: all 0.2s ease;
+}
+
+.years div.selected,
+.years div.selected:hover {
+  background-color: var(--blue);
+  color: var(--main);
+}
+.years div:hover {
+  background-color: var(--color-hover);
+}
+
+.weekDays {
+  height: 40px;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
+
+.weekDays div {
+  display: grid;
+  place-items: center;
+  color: var(--second);
+  font-size: 12px;
+}
+
+.monthDays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 2px;
+  color: var(--color-txt);
+  height: 230px;
+}
+
+.monthDays div {
+  width: 36px;
+  height: 36px;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  position: relative;
+  cursor: pointer;
+  animation: to-top 1s forwards;
+  /* border-radius: 50%; */
+}
+
+.monthDays div span {
+  position: absolute;
+}
+
+.hoverEffect:hover span {
+  transition: width 0.2s ease-in-out, height 0.2s ease-in-out;
+}
+
+.monthDays div span:nth-child(1),
+.monthDays div span:nth-child(3) {
+  width: 2px;
+  height: 0;
+  background-color: var(--color-txt);
+}
+
+.hoverEffect:hover span:nth-child(1),
+.hoverEffect:hover span:nth-child(3) {
+  height: 100%;
+}
+
+.monthDays div span:nth-child(1) {
+  bottom: 0;
+  left: 0;
+}
+
+.monthDays div span:nth-child(3) {
+  top: 0;
+  right: 0;
+}
+
+.monthDays div span:nth-child(2),
+.monthDays div span:nth-child(4) {
+  width: 0;
+  height: 2px;
+  background-color: var(--color-txt);
+}
+
+.hoverEffect:hover span:nth-child(2),
+.hoverEffect:hover span:nth-child(4) {
+  width: 100%;
+}
+
+.monthDays div span:nth-child(2) {
+  top: 0;
+  left: 0;
+}
+
+.monthDays div span:nth-child(4) {
+  bottom: 0;
+  right: 0;
+}
+
+.hoverEffect:hover span:nth-child(2) {
+  transition-delay: 0.2s;
+}
+
+.hoverEffect:hover span:nth-child(3) {
+  transition-delay: 0.4s;
+}
+
+.hoverEffect:hover span:nth-child(4) {
+  transition-delay: 0.6s;
+}
+
+.monthDays .selected,
+.monthDays .selected:hover {
+  background-color: var(--blue);
+  color: var(--main);
+  border-radius: 50%;
+}
+
+.monthDays .current {
+  border: 2px solid var(--color-txt);
+}
+
+.monthDays .selected span {
+  display: none;
+}

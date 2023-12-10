@@ -1,41 +1,88 @@
 import { useRef, useState } from "react";
 import Input from "../../elements/Input";
-import DatePickerDialog, { TDatePickerDialogHandle } from "./Dialog";
 import { CalendarIcon } from "../../elements/Icon";
 import useOnClickOutside from "../../../hooks/userOnClickOutside";
 import { formatDateDDMMYYY } from "../../../utils/date-picker";
-import "./style.css";
+import Dialog, { TDialogHandle } from "../../elements/Dialog";
+import Header from "./Header";
+import Body from "./Body";
 
 export default function DatePicker() {
   const datePickerRef = useRef<HTMLDivElement>(null);
-  const datePickerDialogRef = useRef<TDatePickerDialogHandle>(null);
+  const datePickerDialogRef = useRef<TDialogHandle>(null);
   const datePickerInputRef = useRef<HTMLInputElement>(null);
 
-  const [value, setValue] = useState<Date>(new Date());
+  const [value, setValue] = useState<Date>(new Date()); // value of input
+
+  const currentDate = new Date();
+  const [selectedDate, setSelectedDate] = useState(currentDate);
+
+  const [today, setToday] = useState(currentDate);
+  const currentYear = today.getFullYear();
+  const currentMonth = today.getMonth();
+
+  const [isShowYear, setIsShowYear] = useState(false);
 
   useOnClickOutside(datePickerRef, () =>
     datePickerDialogRef.current?.onOpen(false)
   );
 
-  const onOk = (v: Date) => {
-    setValue(v);
-    datePickerDialogRef.current?.onOpen(false);
+  const onOk = () => {
+    setValue(selectedDate);
+  };
+
+  const handleNextMonth = () => {
+    setToday((prev) => {
+      return new Date(prev.setMonth(prev.getMonth() + 1));
+    });
+  };
+
+  const handlePrevMonth = () => {
+    setToday((prev) => new Date(prev.setMonth(prev.getMonth() - 1)));
+  };
+
+  const handleSelectDay = (day: string | number) => {
+    setSelectedDate(new Date(currentYear, currentMonth, Number(day)));
+  };
+
+  const handleSelectYear = (year: number) => {
+    setToday(new Date(year, currentMonth));
+    setIsShowYear(false);
   };
 
   return (
-    <div className="date-picker" ref={datePickerRef}>
+    <div ref={datePickerRef}>
       <Input
         ref={datePickerInputRef}
+        readOnly
         rightElement={{
           element: <CalendarIcon />,
           onCLick: () => {
-            datePickerDialogRef.current?.onOpen(true);
+            datePickerDialogRef.current?.onToggle();
             datePickerInputRef.current?.focus();
           },
         }}
-        value={value ? formatDateDDMMYYY(value) : value}
+        value={formatDateDDMMYYY(value)}
       />
-      <DatePickerDialog ref={datePickerDialogRef} onOk={onOk} />
+      <Dialog ref={datePickerDialogRef} onOk={onOk}>
+        <>
+          <Header
+            currentMonth={currentMonth}
+            currentYear={currentYear}
+            onMonthPicker={() => setIsShowYear((prev) => !prev)}
+            onNextMonth={handleNextMonth}
+            onPrevMonth={handlePrevMonth}
+          />
+          <Body
+            isShowYear={isShowYear}
+            selectedDate={selectedDate}
+            currentMonth={currentMonth}
+            currentYear={currentYear}
+            handleSelectDay={handleSelectDay}
+            handleSelectYear={handleSelectYear}
+          />
+        </>
+      </Dialog>
     </div>
   );
 }

@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Roboto+Condensed:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap");
 :root {
-  --bg-main: #101418;
-  --bg-second: rgba(255, 255, 255, 0.7);
+  --main: #101418;
+  --second: rgba(255, 255, 255, 0.7);
   --color-hover: #323048;
   --color-txt: #f8fbff;
   --bg-modal: #252424;
@@ -23,7 +23,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--bg-main);
+  background-color: var(--main);
 }
 
 .App {

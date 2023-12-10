@@ -1,0 +1,42 @@
+.wrapper {
+  height: max-content;
+  width: max-content;
+  background-color: var(--bg-modal);
+  position: relative;
+  overflow: hidden;
+  width: 320px;
+  visibility: hidden;
+  opacity: 0;
+  transform: scale(0.8);
+}
+.wrapper.visible {
+  visibility: visible;
+  opacity: 1;
+  transform: scale(1);
+  transition: all 0.25s ease-in-out;
+}
+
+.content {
+}
+
+.footer {
+  padding: 10px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.footer div {
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: color 0.2s ease-in-out;
+  color: var(--color-txt);
+  margin-left: 10px;
+}
+
+.footer div:hover {
+  color: var(--second);
+}

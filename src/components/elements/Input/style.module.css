@@ -9,7 +9,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  border: 2px solid var(--bg-second);
+  border: 2px solid var(--second);
   border-radius: 8px;
   font-family: inherit;
   font-size: 14px;
@@ -37,7 +37,7 @@
   color: var(--color-txt);
   cursor: text;
   transition: all 200ms ease-in;
-  background-color: var(--bg-main);
+  background-color: var(--main);
 }
 
 .input:hover ~ .label {
@@ -52,7 +52,7 @@
   color: var(--color-txt);
 }
 
-.right-element {
+.rightElement {
   position: absolute;
   right: 2px;
   top: 50%;
@@ -67,6 +67,6 @@
   color: var(--color-txt);
 }
 
-.right-element:hover {
+.rightElement:hover {
   background-color: var(--color-hover);
 }

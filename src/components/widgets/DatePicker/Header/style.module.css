@@ -1,0 +1,36 @@
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--color-txt);
+  padding: 0 12px 0 24px;
+  margin: 16px 0 8px 0;
+}
+.monthPicker {
+  position: relative;
+}
+.monthPicker span {
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.monthChanger {
+  display: flex;
+  align-items: center;
+}
+
+.monthChanger span {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+
+.monthChanger span:hover {
+  background-color: var(--color-hover);
+}

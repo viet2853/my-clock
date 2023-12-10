@@ -1,5 +1,4 @@
-import React from "react";
-import { DIAMETER, toRadians } from "../../../../../utils/time-picker";
+import { DIAMETER, toRadians } from "../../../../utils/time-picker";
 import { ETime } from "../Times";
 
 type TLine = {
@@ -10,6 +9,7 @@ export default function Line({ duration, type }: TLine) {
   const angleNb = type === ETime.HOUR ? duration * 30 : duration * 6;
   const angleRadian = toRadians(angleNb);
   const radius = DIAMETER / 2;
+
   const lineProps = {
     x1: radius,
     y1: radius,
@@ -24,8 +24,13 @@ export default function Line({ duration, type }: TLine) {
 
   return (
     <svg height={DIAMETER} width={DIAMETER} style={{ position: "absolute" }}>
-      <line strokeWidth={2} stroke="#90caf9" {...lineProps} />
-      <circle {...circleProps} r="10" fill="#90caf9" />
+      <line
+        strokeWidth={2}
+        stroke="#90caf9"
+        {...lineProps}
+        style={{ transition: "all 200ms ease" }}
+      />
+      <circle {...circleProps} r="18" fill="#90caf9" />
     </svg>
   );
 }

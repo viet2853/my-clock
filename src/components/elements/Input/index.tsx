@@ -3,7 +3,7 @@ import React, {
   InputHTMLAttributes,
   forwardRef,
 } from "react";
-import "./style.css";
+import styles from "./style.module.css";
 
 interface IInput extends InputHTMLAttributes<{}> {
   rightElement?: {
@@ -18,21 +18,21 @@ const Input: ForwardRefRenderFunction<any, IInput> = (
   ref
 ) => {
   return (
-    <div className="wrapper">
+    <div className={styles.wrapper}>
       <input
         type="text"
         ref={ref}
         id="date"
-        className="input"
+        className={styles.input}
         autoComplete="off"
         placeholder="DD/MM/YYYY"
         {...props}
       />
-      <label htmlFor="date" className="label">
+      <label htmlFor="date" className={styles.label}>
         {label}
       </label>
       {rightElement && (
-        <div className="right-element" onClick={rightElement?.onCLick}>
+        <div className={styles.rightElement} onClick={rightElement?.onCLick}>
           {rightElement.element}
         </div>
       )}
