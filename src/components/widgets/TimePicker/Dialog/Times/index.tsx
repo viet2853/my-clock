@@ -4,7 +4,7 @@ import {
   generateTime,
   toRadians,
   zeroPad,
-} from "../../../../utils/time-picker";
+} from "../../../../../utils/time-picker";
 
 import styles from "./style.module.css";
 

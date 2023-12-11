@@ -1,4 +1,4 @@
-import { DIAMETER, toRadians } from "../../../../utils/time-picker";
+import { DIAMETER, toRadians } from "../../../../../utils/time-picker";
 import { ETime } from "../Times";
 
 type TLine = {

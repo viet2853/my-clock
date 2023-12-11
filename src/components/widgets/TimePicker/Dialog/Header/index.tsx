@@ -1,5 +1,5 @@
 import React from "react";
-import { zeroPad } from "../../../../utils/time-picker";
+import { zeroPad } from "../../../../../utils/time-picker";
 import { ETime } from "../Times";
 
 import styles from "./style.module.css";

@@ -14,7 +14,7 @@ interface IInput extends InputHTMLAttributes<{}> {
 }
 
 const Input: ForwardRefRenderFunction<any, IInput> = (
-  { rightElement, label = "Chọn ngày", ...props },
+  { rightElement, label = "Chọn ngày", id = "date-picker", ...props },
   ref
 ) => {
   return (
@@ -22,13 +22,13 @@ const Input: ForwardRefRenderFunction<any, IInput> = (
       <input
         type="text"
         ref={ref}
-        id="date"
+        id={id}
         className={styles.input}
         autoComplete="off"
         placeholder="DD/MM/YYYY"
         {...props}
       />
-      <label htmlFor="date" className={styles.label}>
+      <label htmlFor={id} className={styles.label}>
         {label}
       </label>
       {rightElement && (

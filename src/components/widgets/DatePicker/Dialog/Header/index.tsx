@@ -1,8 +1,8 @@
 import React from "react";
 
 import styles from "./style.module.css";
-import { ChevronLeft, ChevronRight } from "../../../elements/Icon";
-import { MONTH_NAMES } from "../../../../utils/date-picker";
+import { ChevronLeft, ChevronRight } from "../../../../elements/Icon";
+import { MONTH_NAMES } from "../../../../../utils/date-picker";
 
 type THeader = {
   currentMonth: number;

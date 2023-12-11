@@ -1,4 +1,4 @@
-import { ETime } from "../components/widgets/TimePicker/Times";
+import { ETime } from "../components/widgets/TimePicker/Dialog/Times";
 
 export const DIAMETER = 220;
 

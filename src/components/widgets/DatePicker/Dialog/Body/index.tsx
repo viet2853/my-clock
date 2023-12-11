@@ -5,13 +5,13 @@ import {
   DAY_NAMES,
   generateCalendar,
   getListYear,
-} from "../../../../utils/date-picker";
+} from "../../../../../utils/date-picker";
 
 type TBody = {
   isShowYear: boolean;
   currentMonth: number;
   currentYear: number;
-  selectedDate: Date;
+  selectedDate?: Date;
   handleSelectYear: (y: number) => void;
   handleSelectDay: (d: number | string) => void;
 };
@@ -38,9 +38,9 @@ export default function Body({
   const isSelectedDay = (day: string | number) => {
     const date = new Date(currentYear, currentMonth, Number(day));
     return (
-      date.getDate() === selectedDate.getDate() &&
-      date.getMonth() === selectedDate.getMonth() &&
-      date.getFullYear() === selectedDate.getFullYear()
+      date.getDate() === selectedDate?.getDate() &&
+      date.getMonth() === selectedDate?.getMonth() &&
+      date.getFullYear() === selectedDate?.getFullYear()
     );
   };
 
